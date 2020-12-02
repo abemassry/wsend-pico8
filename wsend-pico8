@@ -1,0 +1,15 @@
+#!/bin/bash
+html=$1
+filename=$(echo "$html" | sed 's/.html//')
+jslink=$(~/.wsend/wsend $filename.js | tr -d '\n')
+if [[ $(uname) == "Darwin" ]]; then
+  sed -i '' "s|$filename.js|$jslink|" $html
+else
+  sed -i "s|$filename.js|$jslink|" $html
+fi
+~/.wsend/wsend $html
+if [[ $(uname) == "Darwin" ]]; then
+  sed -i '' "s|$jslink|$filename.js|" $html
+else
+  sed -i "s|$jslink|$filename.js|" $html
+fi
