@@ -15,6 +15,9 @@ Share a Work In Progress (WIP) PICO-8 game
      
      # export the cart in pico-8 with the command:
      # > export example.html
+     # carts are stored in the cart directory on the host machine run:
+     # > folder
+     # to open and find the directory
      # then on the command line run this:
      wsend-pico8 example.html
 
